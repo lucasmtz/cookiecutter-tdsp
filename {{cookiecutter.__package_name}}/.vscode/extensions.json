@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "njpwerner.autodocstring",
+    "docsmsft.docs-yaml",
+    "irongeek.vscode-env",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "shd101wyy.markdown-preview-enhanced",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "mgesbert.python-path",
+    "ptweir.python-string-sql",
+    "mechatroner.rainbow-csv",
+    "foxundermoon.shell-format",
+    "adpyke.vscode-sql-formatter",
+    "gruntfuggly.todo-tree",
+    "zhucy.project-tree"
+  ],
+  "unwantedRecommendations": []
+}

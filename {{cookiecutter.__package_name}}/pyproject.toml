@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "{{cookiecutter.__package_name}}"
+version = "0.0.0"
+description = "{{cookiecutter.description}}"
+authors = ["{{cookiecutter.authors}}"]
+license = "{{cookiecutter.license}}"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+isort = "^4.3.21"
+pylint = "^2.14.5"
+mypy = "^0.971"
+coverage = "^6.4.2"
+pytest = "^7.1.2"
+pre-commit = "^2.20.0"
+ipykernel = "^6.15.1"
+jupyterlab = "^3.4.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip_gitignore = true
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+show_error_codes = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_unused_configs = true
+
+[tool.coverage.run]
+branch = true
+source = ["{{cookiecutter.__package_name}}"]
+
+[tool.coverage.report]
+ignore_errors = false
+show_missing = true
+fail_under = 100
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self\\.debug",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "AbstractMethodError",
+    "@(abc\\.)?abstractmethod",
+    ]
+
+[tool.coverage.html]
+directory = "coverage_html_report"
