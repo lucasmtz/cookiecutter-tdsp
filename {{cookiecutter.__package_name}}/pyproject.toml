@@ -13,11 +13,13 @@ black = "^22.6.0"
 isort = "^4.3.21"
 pylint = "^2.14.5"
 mypy = "^0.971"
+bandit = "^1.7.4"
 coverage = "^6.4.2"
 pytest = "^7.1.2"
 pre-commit = "^2.20.0"
 ipykernel = "^6.15.1"
 jupyterlab = "^3.4.4"
+ipywidgets = "^7.7.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -31,6 +33,12 @@ profile = "black"
 line_length = 120
 skip_gitignore = true
 
+[tool.pylint]
+disable = [
+  "missing-module-docstring",
+  "duplicate-code",
+  ]
+
 [tool.pylint.format]
 max-line-length = 120
 
@@ -43,6 +51,10 @@ show_error_codes = true
 warn_return_any = true
 warn_unused_ignores = true
 warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.bandit]
+skips = ["B608"]
 
 [tool.coverage.run]
 branch = true
