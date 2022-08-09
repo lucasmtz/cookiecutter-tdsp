@@ -9,8 +9,10 @@ license = "{{cookiecutter.license}}"
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-black = "^22.6.0"
+toml = "^0.10.2"
+pydocstyle = "^6.1.1"
 isort = "^4.3.21"
+black = "^22.6.0"
 pylint = "^2.14.5"
 mypy = "^0.971"
 bandit = "^1.7.4"
@@ -25,19 +27,19 @@ ipywidgets = "^7.7.1"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
-line-length = 120
+[tool.pydocstyle]
+ignore = ["D212"]
 
 [tool.isort]
 profile = "black"
 line_length = 120
 skip_gitignore = true
 
+[tool.black]
+line-length = 120
+
 [tool.pylint]
-disable = [
-  "missing-module-docstring",
-  "duplicate-code",
-  ]
+disable = ["missing-module-docstring"]
 
 [tool.pylint.format]
 max-line-length = 120
@@ -54,7 +56,7 @@ warn_unused_configs = true
 ignore_missing_imports = true
 
 [tool.bandit]
-skips = ["B608"]
+skips = []
 
 [tool.coverage.run]
 branch = true
