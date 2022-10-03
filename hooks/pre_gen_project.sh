@@ -49,9 +49,9 @@ else
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bashrc
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.profile
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bash_profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bash_profile
+    # Enable tab completion for Bash
+    poetry completions bash >>~/.bash_completion || poetry completions bash >>~/.bash_completion
 fi
-# Enable tab completion for Bash
-poetry completions bash >>~/.bash_completion || poetry completions bash >>~/.bash_completion
 # Change config toc reate the virtualenv inside the project’s root directory
 echo "Changing poetry config to create the virtualenv inside the project's root directory..."
 poetry config virtualenvs.in-project true
