@@ -15,6 +15,7 @@ A [cookiecutter](https://cookiecutter.readthedocs.io/) template for a data scien
         * **description** [Project descriprion]: `A data science project for a big company`
         * **authors:** [author1_name <author1_email>, author2_name <author2_email>]: `author1 <author1@example.com>, author2 <author2@example.com>`
         * **license** [Choice Variable]: `1`
+        * **python_version** [Valid values from pyenv install --list. Default is latest version of python 3]: `3.9.14`
 3.  The project directory will be created in the current directory.  You can navigate to the project directory using the `cd` command and open VS Code using the `code` command.
     * `cd propensity_buy_ecommerce`
     * `code .`

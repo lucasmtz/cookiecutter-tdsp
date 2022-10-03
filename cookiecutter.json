@@ -19,5 +19,6 @@
     "LGPL-3.0-only",
     "LGPL-3.0-or-later",
     "MIT"
-  ]
+  ],
+  "python_version": "Valid values from pyenv install --list. Default is latest version of python 3"
 }
