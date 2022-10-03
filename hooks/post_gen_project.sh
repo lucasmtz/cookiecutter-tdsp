@@ -1,12 +1,5 @@
 #!/bin/sh
 # -----------------------------------------------------------------------------------------------------------------
-# Update poetry and set config virtualenvs.in-project to true
-# -----------------------------------------------------------------------------------------------------------------
-echo "Updating poetry..."
-poetry self update
-poetry config virtualenvs.in-project true
-
-# -----------------------------------------------------------------------------------------------------------------
 # Start a git repository if it not exists and copy .gitignore and .pre-commit-config.yaml
 # -----------------------------------------------------------------------------------------------------------------
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
