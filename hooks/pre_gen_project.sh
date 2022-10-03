@@ -1,11 +1,5 @@
 #!/bin/sh
 # -----------------------------------------------------------------------------------------------------------------
-# Install or update git
-# -----------------------------------------------------------------------------------------------------------------
-echo "Installing or updating git..."
-sudo apt-get install git -y
-
-# -----------------------------------------------------------------------------------------------------------------
 # Install Python build dependencies - PyEnv builds Python from source so you need to install all the build dependencies
 # -----------------------------------------------------------------------------------------------------------------
 echo "Installing Python build dependencies..."
@@ -26,18 +20,16 @@ else
     # Set up your shell environment for Pyenv
     echo "Setting up your shell environment for Pyenv"
     # bashrc
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bashrc
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bashrc
+    grep -qxF 'export PYENV_ROOT="$HOME/.pyenv"' ~/.bashrc || echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bashrc
+    grep -qxF 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc || echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bashrc
     # profile
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.profile
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.profile
-    echo 'eval "$(pyenv init -)"' >>~/.profile
+    grep -qxF 'export PYENV_ROOT="$HOME/.pyenv"' ~/.profile || echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.profile
+    grep -qxF 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.profile || echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.profile
+    grep -qxF 'eval "$(pyenv init -)"' ~/.profile || echo 'eval "$(pyenv init -)"' >>~/.profile
     # bash_profile
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bash_profile
-    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bash_profile
-    echo 'eval "$(pyenv init -)"' >>~/.bash_profile
-    # restart the shell for the PATH changes to take effect
-    exec "$SHELL"
+    grep -qxF 'export PYENV_ROOT="$HOME/.pyenv"' ~/.bash_profile || echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bash_profile
+    grep -qxF 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bash_profile || echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bash_profile
+    grep -qxF 'eval "$(pyenv init -)"' ~/.bash_profile || echo 'eval "$(pyenv init -)"' >>~/.bash_profile
 fi
 
 # -----------------------------------------------------------------------------------------------------------------
@@ -54,14 +46,12 @@ else
     curl -sSL https://install.python-poetry.org | python3 -
     # Set up your shell environment for Poetry
     echo "Setting up your shell environment for Poetry"
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bashrc
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.profile
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bash_profile
-    exec "$SHELL"
+    grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bashrc
+    grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.profile
+    grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bash_profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bash_profile
 fi
 # Enable tab completion for Bash
-poetry completions bash >>~/.bash_completion
-exec "$SHELL"
+poetry completions bash >>~/.bash_completion || poetry completions bash >>~/.bash_completion
 # Change config toc reate the virtualenv inside the project’s root directory
 echo "Changing poetry config to create the virtualenv inside the project's root directory..."
 poetry config virtualenvs.in-project true
