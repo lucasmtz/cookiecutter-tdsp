@@ -4,10 +4,10 @@
 # -----------------------------------------------------------------------------------------------------------------
 if [ -n "$(pyenv install --list | egrep "^\s{0,}{{cookiecutter.python_version}}$")" ]; then
     PYTHON_VERSION=$(pyenv install --list | egrep "^\s{0,}{{cookiecutter.python_version}}$" | xargs)
-    printf "\n\nInstalling $PYTHON_VERSION..."
+    printf "\nInstalling $PYTHON_VERSION...\n"
 else
     PYTHON_VERSION=$(pyenv install --list | egrep "^  3\.[0-9]{1,}\.[0-9]{1,}$" | tail -1 | xargs)
-    printf "\n\nNo version of {{cookiecutter.python_version}} found. Installing latest python version ($PYTHON_VERSION).."
+    printf "\nNo version of {{cookiecutter.python_version}} found. Installing latest python version ($PYTHON_VERSION)...\n"
 fi
 
 # -----------------------------------------------------------------------------------------------------------------
@@ -21,24 +21,24 @@ pyenv global $PYTHON_VERSION
 # -----------------------------------------------------------------------------------------------------------------
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ "$inside_git_repo" ]; then
-    printf "\n\nGit repository already exists. Deleting .gitignore and .pre-commit-config.yaml..."
+    printf "\nGit repository already exists. Deleting .gitignore and .pre-commit-config.yaml...\n"
     rm -f .gitignore .pre-commit-config.yaml
 else
-    printf "\n\nInitializing new git repository.."
+    printf "\nInitializing new git repository...\n"
     git init -b main
 fi
 
 # -----------------------------------------------------------------------------------------------------------------
 # Create virtual environment for project
 # -----------------------------------------------------------------------------------------------------------------
-printf "\n\nCreating virtual environment for project."
+printf "\nCreating virtual environment for project...\n"
 poetry install
 poetry env info
 
 # -----------------------------------------------------------------------------------------------------------------
 # Install pre-commit
 # -----------------------------------------------------------------------------------------------------------------
-printf "\n\nInstalling pre-commit... "
+printf "\nInstalling pre-commit...\n"
 poetry run pre-commit install
 poetry run pre-commit install --hook-type commit-msg
 
@@ -50,4 +50,4 @@ sed -i 's/# .vscode/\.vscode/g' .gitignore
 # -----------------------------------------------------------------------------------------------------------------
 # Display success message
 # -----------------------------------------------------------------------------------------------------------------
-printf "\n\n{{cookiecutter.project_name}}[{{cookiecutter.__package_name}}] TDSP project template created. Happy codin"
+printf "\n{{cookiecutter.project_name}}[{{cookiecutter.__package_name}}] TDSP project template created. Happy coding!\n\n"

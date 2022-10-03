@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------------------------------------------
 # Install Python build dependencies - PyEnv builds Python from source so you need to install all the build dependencies
 # -----------------------------------------------------------------------------------------------------------------
-printf "\n\nInstalling Python build dependencies..."
+printf "\nInstalling Python build dependencies...\n"
 sudo apt-get update -y
 sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
@@ -10,15 +10,14 @@ sudo apt-get install make build-essential libssl-dev zlib1g-dev libbz2-dev libre
 # Install PyEnv - PyEnv is a tool that allows you to install multiple versions of Python on the same machine
 # -----------------------------------------------------------------------------------------------------------------
 if [ -x "$(command -v pyenv)" ]; then
-    printf "\n\nPyEnv is installed. Updating..."
+    printf "\nPyEnv is installed. Updating...\n"
     pyenv update
 else
-    printf "\n\nPyEnv is not installed."
+    printf "\nPyEnv is not installed. Installing...\n"
     # Install PyEnv
-    printf "\n\nInstalling PyEnv..."
     curl https://pyenv.run | bash
     # Set up your shell environment for Pyenv
-    printf "\n\nSetting up your shell environment for Pyenv"
+    printf "\nSetting up your shell environment for Pyenv...\n"
     # bashrc
     grep -qxF 'export PYENV_ROOT="$HOME/.pyenv"' ~/.bashrc || echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bashrc
     grep -qxF 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.bashrc || echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bashrc
@@ -37,16 +36,16 @@ fi
 # Install Poetry - Poetry is a tool for dependency management and packaging in Python
 # -----------------------------------------------------------------------------------------------------------------
 # Unninstall Poetry if installed using the deprecated get-poetry.py script
-printf "\n\nUninstalling Poetry if installed using the deprecated get-poetry.py script..."
+printf "\nUninstalling Poetry if installed using the deprecated get-poetry.py script...\n"
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 - --uninstall
 if [ -x "$(command -v poetry)" ]; then
-    printf "\n\nPoetry is installed. Updating..."
+    printf "\nPoetry is installed. Updating...\n"
     poetry self update
 else
-    printf "\n\nPoetry is not installed. Installing..."
+    printf "\nPoetry is not installed. Installing...\n"
     curl -sSL https://install.python-poetry.org | python3 -
     # Set up your shell environment for Poetry
-    printf "\n\nSetting up your shell environment for Poetry"
+    printf "\nSetting up your shell environment for Poetry...\n"
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bashrc
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.profile
     grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' ~/.bash_profile || echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.bash_profile
@@ -54,6 +53,6 @@ else
     poetry completions bash >>~/.bash_completion
 fi
 # Change config toc reate the virtualenv inside the project’s root directory
-printf "\n\nChanging poetry config to create the virtualenv inside the project's root directory..."
+printf "\nChanging poetry config to create the virtualenv inside the project's root directory...\n"
 poetry config virtualenvs.in-project true
 poetry config virtualenvs.prefer-active-python true
