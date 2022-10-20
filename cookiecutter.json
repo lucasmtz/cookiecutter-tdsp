@@ -20,5 +20,7 @@
     "LGPL-3.0-or-later",
     "MIT"
   ],
-  "python_version": "Valid values from pyenv install --list. Default is latest version of python 3"
+  "python_version": "Valid values from pyenv install --list. Default is latest version of python 3",
+  "dvc_remote_name": "DVC remote name",
+  "dvc_remote_url": "DVC remote url (e.g. s3://bucket-name/path/to/dir or /path/to/dir)"
 }

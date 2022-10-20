@@ -22,37 +22,49 @@ A [cookiecutter](https://cookiecutter.readthedocs.io/) template for a data scien
 
 ## Template project structure
 
-```
+```markdown
 {{cookiecutter.__package_name}}
-├─ .gitignore
-├─ .pre-commit-config.yaml
-├─ .vscode
-│  ├─ extensions.json
-│  └─ settings.json
-├─ README.md
-├─ docs
-│  ├─ 01_business_understanding
-│  │  └─ project_charter.md
-│  ├─ 02_architecture
-│  │  └─ system_architecture_report.md
-│  ├─ 03_data
-│  │  ├─ data_definition.md
-│  │  ├─ data_dictionary.md
-│  │  └─ data_summary_report.md
-│  ├─ 04_modeling
-│  │  ├─ final_model_report.md
-│  │  └─ models
-│  │  ├─ baseline_model.md
-│  │  └─ model_1.md
-│  ├─ 05_deployment
-│  │  └─ deployment_report.md
-│  ├─ 06_acceptance
-│  │  └─ project_exit_report.md
-│  └─ README.md
-├─ pyproject.toml
-├─ tests
-│  ├─ __init__.py
-│  └─ test_{{cookiecutter.__package_name}}.py
-└─ {{cookiecutter.__package_name}}
-   └─ __init__.py
+ ┣ .vscode
+ ┃ ┣ extensions.json
+ ┃ ┗ settings.json
+ ┣ data
+ ┃ ┣ interim
+ ┃ ┣ processed
+ ┃ ┣ raw
+ ┃ ┗ README.md
+ ┣ docs
+ ┃ ┣ acceptance
+ ┃ ┃ ┗ project_exit_report.md
+ ┃ ┣ business_understanding
+ ┃ ┃ ┗ project_charter.md
+ ┃ ┣ data
+ ┃ ┃ ┗ data_summary_report.md
+ ┃ ┣ media
+ ┃ ┣ modeling
+ ┃ ┃ ┗ final_model_report.md
+ ┃ ┣ references
+ ┃ ┣ src
+ ┃ ┣ system_architecture
+ ┃ ┃ ┗ system_architecture_report.md
+ ┃ ┗ README.md
+ ┣ models
+ ┃ ┗ README.md
+ ┣ notebooks
+ ┃ ┗ README.md
+ ┣ pipelines
+ ┃ ┗ README.md
+ ┣ src
+ ┃ ┗ {{cookiecutter.__package_name}}
+ ┃ ┃ ┗ __init__.py
+ ┣ tests
+ ┃ ┣ data_validation
+ ┃ ┃ ┗ __init__.py
+ ┃ ┣ unit
+ ┃ ┃ ┣ __init__.py
+ ┃ ┃ ┗ test_{{cookiecutter.__package_name}}.py
+ ┃ ┗ __init__.py
+ ┣ .gitignore
+ ┣ .pre-commit-config.yaml
+ ┣ README.md
+ ┗ pyproject.toml
 ```

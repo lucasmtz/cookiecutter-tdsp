@@ -16,6 +16,9 @@ fi
 pyenv install $PYTHON_VERSION -s
 pyenv global $PYTHON_VERSION
 
+# Substitute the python_version in the .python-version file
+sed -i '' "s/{{cookiecutter.python_version}}/$PYTHON_VERSION/g" .python-version
+
 # -----------------------------------------------------------------------------------------------------------------
 # Start a git repository if it not exists and copy .gitignore and .pre-commit-config.yaml
 # -----------------------------------------------------------------------------------------------------------------
@@ -32,6 +35,7 @@ fi
 # Create virtual environment for project
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nCreating virtual environment for project...\n"
+poetry update
 poetry install
 poetry env info
 
@@ -40,7 +44,18 @@ poetry env info
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nInstalling pre-commit...\n"
 poetry run pre-commit install
-poetry run pre-commit install --hook-type commit-msg
+poetry run pre-commit install --hook-type commit-msg --hook-type pre-push --hook-type post-checkout --hook-type pre-commit
+pre-commit autoupdate
+
+# -----------------------------------------------------------------------------------------------------------------
+# Initialize and configure dvc
+# -----------------------------------------------------------------------------------------------------------------
+printf "\nInitializing dvc...\n"
+dvc init
+dvc config core.autostage true
+dvc remote add -d {{cookiecutter.dvc_remote_name}} {{cookiecutter.dvc_remote_url}}
+dvc add data
+dvc add models
 
 # -----------------------------------------------------------------------------------------------------------------
 # Add VScode settings to .gitignore

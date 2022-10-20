@@ -4,9 +4,12 @@ version = "0.0.0"
 description = "{{cookiecutter.description}}"
 authors = ["{{cookiecutter.authors}}"]
 license = "{{cookiecutter.license}}"
+readme = "README.md"
+packages = [{include = "{{cookiecutter.__package_name}}", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+dvc = {extras = ["all"], version = "^2.30.0"}
 
 [tool.poetry.dev-dependencies]
 toml = "^0.10.2"
@@ -28,7 +31,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pydocstyle]
-ignore = ["D212"]
+ignore = ["D203", "D212"]
 
 [tool.isort]
 profile = "black"
@@ -60,7 +63,7 @@ skips = []
 
 [tool.coverage.run]
 branch = true
-source = ["{{cookiecutter.__package_name}}"]
+source = ["src/{{cookiecutter.__package_name}}"]
 
 [tool.coverage.report]
 ignore_errors = false
