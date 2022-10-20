@@ -16,9 +16,6 @@ fi
 pyenv install $PYTHON_VERSION -s
 pyenv global $PYTHON_VERSION
 
-# Substitute the python_version in the .python-version file
-sed -i '' "s/{{cookiecutter.python_version}}/$PYTHON_VERSION/g" .python-version
-
 # -----------------------------------------------------------------------------------------------------------------
 # Start a git repository if it not exists and copy .gitignore and .pre-commit-config.yaml
 # -----------------------------------------------------------------------------------------------------------------
