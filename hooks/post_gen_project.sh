@@ -42,17 +42,17 @@ poetry env info
 printf "\nInstalling pre-commit...\n"
 poetry run pre-commit install
 poetry run pre-commit install --hook-type commit-msg --hook-type pre-push --hook-type post-checkout --hook-type pre-commit
-pre-commit autoupdate
+poetry run pre-commit autoupdate
 
 # -----------------------------------------------------------------------------------------------------------------
 # Initialize and configure dvc
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nInitializing dvc...\n"
-dvc init
-dvc config core.autostage true
-dvc remote add -d {{cookiecutter.dvc_remote_name}} {{cookiecutter.dvc_remote_url}}
-dvc add data
-dvc add models
+poetry run dvc init
+poetry run dvc config core.autostage true
+poetry run dvc remote add -d {{cookiecutter.dvc_remote_name}} {{cookiecutter.dvc_remote_url}}
+poetry run dvc add data
+poetry run dvc add models
 
 # -----------------------------------------------------------------------------------------------------------------
 # Add VScode settings to .gitignore
