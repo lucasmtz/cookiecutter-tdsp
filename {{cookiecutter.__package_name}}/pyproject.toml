@@ -9,22 +9,6 @@ packages = [{include = "{{cookiecutter.__package_name}}", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-dvc = {extras = ["all"], version = "^2.30.0"}
-
-[tool.poetry.dev-dependencies]
-toml = "^0.10.2"
-pydocstyle = "^6.1.1"
-isort = "^4.3.21"
-black = "^22.6.0"
-pylint = "^2.14.5"
-mypy = "^0.971"
-bandit = "^1.7.4"
-coverage = "^6.4.2"
-pytest = "^7.1.2"
-pre-commit = "^2.20.0"
-ipykernel = "^6.15.1"
-jupyterlab = "^3.4.4"
-ipywidgets = "^7.7.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

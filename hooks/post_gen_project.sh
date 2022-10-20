@@ -32,6 +32,8 @@ fi
 # Create virtual environment for project
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nCreating virtual environment for project...\n"
+poetry add dvc[all]
+poetry add -G dev toml pydocstyle isort black pylint mypy bandit coverage pytest pre-commit ipykernel jupyterlab ipywidgets
 poetry update
 poetry install
 poetry env info
@@ -55,9 +57,17 @@ poetry run dvc add data
 poetry run dvc add models
 
 # -----------------------------------------------------------------------------------------------------------------
-# Add VScode settings to .gitignore
+# Run pre-commit
 # -----------------------------------------------------------------------------------------------------------------
-sed -i 's/# .vscode/\.vscode/g' .gitignore
+printf "\nRunning pre-commit...\n"
+poetry run pre-commit run --all-files
+
+# -----------------------------------------------------------------------------------------------------------------
+# Git add and commit
+# -----------------------------------------------------------------------------------------------------------------
+printf "\nGit add and commit...\n"
+git add .
+git commit -m "feat: create template repository"
 
 # -----------------------------------------------------------------------------------------------------------------
 # Display success message
