@@ -1,4 +1,4 @@
-"""Unit tests for {{cookiecutter.__package_name__}}."""
+"""Unit tests for {{cookiecutter.__package_name}}."""
 
 # from {{cookiecutter.__package_name}} import __version__
 

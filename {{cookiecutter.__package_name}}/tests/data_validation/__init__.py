@@ -1,1 +1,1 @@
-"""Data validation tests for {{cookiecutter.__package_name__}}."""
+"""Data validation tests for {{cookiecutter.__package_name}}."""
