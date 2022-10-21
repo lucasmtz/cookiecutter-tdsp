@@ -11,14 +11,8 @@ The charter document is a living document. You update the template throughout th
 ## data
 Documenting datasets, data profiles, behaviors, column definitions, etc.
 
-## media
-Storing images, videos, etc, needed for docs.
-
 ## modeling
 Report describing the model to be delivered.
-
-## references
-For collecting and documenting external resources relevant to the project.
 
 ## src
 Documenting everything in the src directory (could be sphinx project for example).

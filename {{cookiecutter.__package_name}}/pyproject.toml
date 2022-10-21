@@ -68,3 +68,6 @@ exclude_lines = [
 
 [tool.coverage.html]
 directory = "coverage_html_report"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
