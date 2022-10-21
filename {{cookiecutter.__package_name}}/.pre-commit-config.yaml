@@ -137,14 +137,3 @@ repos:
     stages:
     - post-checkout
     always_run: true
-
-- repo: local
-  hooks:
-  - id: pdoc
-    name: pdoc
-    description: 'pdoc: Auto-generate API documentation for Python projects'
-    entry: rm -rf docs/src/{{cookiecutter.__package_name}}/ && pdoc --html -f --output-dir docs/src/ src/{{cookiecutter.__package_name}}/
-    language: python
-    language_version: python3
-    require_serial: true
-    types: [python]
