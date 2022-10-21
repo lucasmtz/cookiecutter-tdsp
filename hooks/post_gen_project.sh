@@ -66,8 +66,8 @@ poetry run pre-commit run --all-files
 # Git add and commit
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nGit add and commit...\n"
-git add .
-git commit -m "feat: create template repository"
+poetry run git add .
+poetry run git commit -m "feat: create template repository"
 
 # -----------------------------------------------------------------------------------------------------------------
 # Display success message

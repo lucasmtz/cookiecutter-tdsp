@@ -4,6 +4,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "files.exclude": {
+    "**.dvc**": true,
     "**/.coverage": true,
     "**/.git": true,
     "**/.ipynb_checkpoints": true,
