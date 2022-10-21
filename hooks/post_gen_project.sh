@@ -53,6 +53,7 @@ printf "\nInitializing dvc...\n"
 poetry run dvc init
 poetry run dvc config core.autostage true
 poetry run dvc remote add -d {{cookiecutter.dvc_remote_name}} {{cookiecutter.dvc_remote_url}}
+echo *.md >> .dvcignore
 poetry run dvc add data
 poetry run dvc add models
 
