@@ -30,8 +30,7 @@ coverage html
 │   │   └── final_model_report.md
 │   ├── README.md
 │   ├── src
-│   │   └── {{cookiecutter.__package_name}}
-│   │       └── index.html
+│   │   └── README.md
 │   └── system_architecture
 │       └── system_architecture_report.md
 ├── models
