@@ -1,10 +1,12 @@
 # Data Directories
 
-This directory is tracked by dvc, so that the data is versioned and can be shared with other contributors. The data directory is organized as follows:
+This directory is tracked by dvc, so that the data is versioned and can be shared with other contributors. If you want to ignore some folder or file, you can add it to the `.dvcignore` file.
 
-## raw
+The data directory is organized as follows:
 
-The original datasets pulled from a source system.
+## external
+
+Data from third party sources
 
 ## interim
 
@@ -13,3 +15,7 @@ Datasets created during the interim steps of a data pipeline. This folder is mos
 ## processed
 
 The output datasets from data pipelines. Generally used as the input to modeling.
+
+## raw
+
+The original datasets pulled from a source system.

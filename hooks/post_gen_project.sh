@@ -33,7 +33,7 @@ fi
 # -----------------------------------------------------------------------------------------------------------------
 printf "\nCreating virtual environment for project...\n"
 poetry add dvc[all]
-poetry add -G dev toml pydocstyle isort black pylint mypy bandit coverage pytest pre-commit ipykernel jupyterlab ipywidgets pdoc3
+poetry add -G dev toml pydocstyle isort black pylint mypy bandit coverage pytest pre-commit ipykernel jupyterlab ipywidgets@7.* pdoc3
 poetry update
 poetry install
 poetry env info
